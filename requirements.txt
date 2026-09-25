@@ -16,3 +16,7 @@ segno # QR Code generator
 pillow #Image Manipulation
 
 streamlit
+
+#Voice Recognition
+librosa
+resemblyzer
