@@ -65,15 +65,15 @@ def auto_enroll(code):
         student_id = student_data.get('student_id')
     res = supabase.table('subjects').select('subject_id', 'name').eq('code', code).execute()
     if not res.data:
-        st.toast(icon="⚠️", body="Couldn't retrieve subject code")
-        if st.button("Close", type="tertiary", width=100):
+        st.error("Could not find a subject matching this QR code.")
+        if st.button("Close", type="tertiary", use_container_width=True):
             st.query_params.clear()
             st.rerun()
         return
     subject = res.data[0]
     if is_student_enrolled(student_id, subject['subject_id']):
-        st.toast(icon="⚠️", body="Already enrolled")
-        if st.button("Close"):
+        st.info(f"You are already enrolled in **{subject['name']}**.")
+        if st.button("Close", type="primary", use_container_width=True):
             st.query_params.clear()
             st.rerun()
         return
@@ -81,17 +81,16 @@ def auto_enroll(code):
     st.markdown(f"Would you like to enroll in **{subject['name']}**?")
     col1, col2 = st.columns(2)
     with col1:
-        if st.button("Yes", type="secondary", width=100):
+        if st.button("Yes, Enroll", type="primary", use_container_width=True):
             result = enroll_student(student_id, subject['subject_id'])
             if result:
-                st.toast("Joined Successfully")
+                st.toast(f"Successfully joined {subject['name']}!", icon="🎉")
             else:
-                st.toast(icon="⚠️", body="Some Error Occured, Try Again later")
+                st.toast(icon="⚠️", body="Some Error Occurred, Try Again later")
             st.query_params.clear()
-            time.sleep(2)
             st.rerun()
     with col2:
-        if st.button("No", type="primary", width=100):
+        if st.button("No, Cancel", type="tertiary", use_container_width=True):
             st.query_params.clear()
             st.rerun()
 

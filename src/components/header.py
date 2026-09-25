@@ -51,6 +51,7 @@ def header_teacher_dashboard():
             st.session_state['login_type'] = None
             st.session_state.pop('teacher_data', None)
             st.session_state.pop('user_role', None)
+            st.session_state.pop('is_logged_in', None)
             st.rerun()
 
 def header_student_dashboard():
@@ -76,4 +77,5 @@ def header_student_dashboard():
             st.session_state.pop('student_data', None)
             st.session_state.pop('student_id', None)
             st.session_state.pop('user_role', None)
+            st.session_state.pop('is_logged_in', None)
             st.rerun()

@@ -29,6 +29,7 @@ def student_screen():
                 st.session_state['student_id'] = student_id
                 st.session_state['student_data'] = student_name
                 st.session_state.user_role = "student"
+                st.session_state['is_logged_in'] = True
                 st.session_state['login_toast'] = message
                 st.session_state['login_type'] = "student_dashboard"
                 st.rerun()
@@ -72,6 +73,7 @@ def student_face_login():
                         st.session_state['student_id'] = actual_student_id
                         st.session_state['student_data'] = student_name
                         st.session_state.user_role = "student"
+                        st.session_state['is_logged_in'] = True
                         st.session_state['login_type'] = "student_dashboard"
                         st.session_state['login_toast'] = "Welcome Back, " + student_name
                         st.rerun()
@@ -121,6 +123,7 @@ def student_screen_signup():
                 st.session_state['student_id'] = student_id
                 st.session_state['student_data'] = student_name
                 st.session_state.user_role = "student"
+                st.session_state['is_logged_in'] = True
                 st.session_state['login_type'] = "student_dashboard"
                 st.session_state['login_toast'] = message
                 st.rerun()

@@ -25,6 +25,17 @@ def main():
     if "login_type" not in st.session_state:
         st.session_state["login_type"] = None
 
+    join_code = st.query_params.get('join-code')
+    is_student_logged_in = bool(st.session_state.get('student_id')) and st.session_state.get('user_role') == "student"
+
+    if join_code:
+        if is_student_logged_in:
+            st.session_state["login_type"] = "student_dashboard"
+        else:
+            student_auth_views = {"student", "student_face_login", "student_screen_signup"}
+            if st.session_state.get("login_type") not in student_auth_views:
+                st.session_state["login_type"] = "student"
+
     match st.session_state["login_type"]:
         case "teacher":
             teacher_screen()
@@ -49,13 +60,8 @@ def main():
         case None:
             home_screen()
 
-    join_code = st.query_params.get('join-code')
-    if join_code:
-        if st.session_state.login_type != "student":
-            st.session_state.login_type = "student"
-            st.rerun()
-        if st.session_state.get('is_logged_in') and st.session_state.get('user_role') == "student":
-            auto_enroll(join_code)
+    if join_code and is_student_logged_in:
+        auto_enroll(join_code)
 
 if __name__ == "__main__":
     main()
