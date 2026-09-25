@@ -44,7 +44,7 @@ def teacher_screen_signup():
     teacher_password = st.text_input("Password", placeholder="Enter your password", type="password")
     teacher_confirm_password = st.text_input("Confirm Password", placeholder="Confirm your password", type="password")
     st.divider()
-    if st.button("Sign up", type="secondary", key="teacher_signup_submit", width=120):
+    if st.button("Sign up", type="secondary", key="teacher_signup_submit", use_container_width=True):
         success, message = register_teacher(teacher_name, teacher_username, teacher_password, teacher_confirm_password)
         if success:
             st.session_state['login_type'] = "teacher"

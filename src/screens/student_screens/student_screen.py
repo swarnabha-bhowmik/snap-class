@@ -112,7 +112,7 @@ def student_screen_signup():
     if photo:
         img = np.array(Image.open(photo))
     st.divider()
-    if st.button("Sign up", type="secondary", key="student_signup_submit", width=120):
+    if st.button("Sign up", type="secondary", key="student_signup_submit", use_container_width=True):
         if img is None:
             st.toast(icon="⚠️", body="Please capture a photo of your face before signing up.")
         else:

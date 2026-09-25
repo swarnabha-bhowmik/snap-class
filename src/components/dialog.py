@@ -18,7 +18,7 @@ def create_subject(teacher_username):
     sub_name = st.text_input("Subject Name", placeholder="Enter the subject name")
     sub_section = st.text_input("Section", placeholder="Enter the section")
     st.divider()
-    if st.button("Create Subject", type="secondary", width=120):
+    if st.button("Create Subject", type="secondary", use_container_width=True):
         success, message = check_subject(sub_id, sub_name, sub_section, teacher_username)
         if success:
             st.toast(body=message)
@@ -28,45 +28,6 @@ def create_subject(teacher_username):
         
 @st.dialog("Share Class Link")
 def share_subject(subject_name, subject_code):
-    st.markdown(
-        """
-        <style>
-            div[data-testid="stDialog"] div[role="dialog"],
-            div[role="dialog"] {
-                color: #FFFFFF !important;
-            }
-
-            div[data-testid="stDialog"] h1,
-            div[data-testid="stDialog"] h2,
-            div[data-testid="stDialog"] h3,
-            div[data-testid="stDialog"] h4,
-            div[data-testid="stDialog"] p,
-            div[data-testid="stDialog"] span,
-            div[data-testid="stDialog"] label,
-            div[data-testid="stDialog"] [data-testid="stMarkdownContainer"] *,
-            div[data-testid="stDialog"] [data-testid="stHeading"] *,
-            div[data-testid="stDialog"] [data-testid="stImageCaption"],
-            div[role="dialog"] h1,
-            div[role="dialog"] h2,
-            div[role="dialog"] h3,
-            div[role="dialog"] h4,
-            div[role="dialog"] p,
-            div[role="dialog"] span,
-            div[role="dialog"] label,
-            div[role="dialog"] [data-testid="stMarkdownContainer"] *,
-            div[role="dialog"] [data-testid="stHeading"] *,
-            div[role="dialog"] [data-testid="stImageCaption"] {
-                color: #FFFFFF !important;
-            }
-
-            div[data-testid="stDialog"] button[aria-label="Close"],
-            div[role="dialog"] button[aria-label="Close"] {
-                color: #FFFFFF !important;
-            }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
     app_domain = st.secrets.get("APP_DOMAIN", "http://localhost:8501")
     join_url = f"{app_domain}/?join-code={subject_code}"
     st.header("Scan to Join")
@@ -87,7 +48,7 @@ def share_subject(subject_name, subject_code):
 @st.dialog("Enroll in Subject")
 def enroll_subject():
     code = st.text_input("Subject Code", placeholder="Enter the subject code")
-    if st.button("Enroll now", type="primary", width=150):
+    if st.button("Enroll now", type="primary", use_container_width=True):
         student_id = st.session_state.get('student_id')
         success, message = check_enroll(code, student_id=student_id)
         if success:
@@ -155,7 +116,7 @@ def add_photos():
             st.toast("Photo(s) uploaded successfully")
             st.rerun()
     st.divider()
-    if st.button("Done", type="secondary", width=100):
+    if st.button("Done", type="secondary", use_container_width=True):
         st.rerun()
 
 @st.dialog("Attendence Report")

@@ -206,8 +206,8 @@ def style_base_layout():
                 display: inline-flex !important;
                 align-items: center !important;
                 justify-content: center !important;
-                height: 44px !important;
                 min-height: 44px !important;
+                height: auto !important;
                 border-radius: 1.5rem !important;
                 color: white !important;
                 padding: 8px 16px !important;
@@ -247,8 +247,12 @@ def style_base_layout():
                 color: white !important;
                 font-family: "Outfit", "Plus Jakarta Sans", sans-serif !important;
                 font-weight: 600 !important;
-                font-size: 1rem !important;
+                font-size: 0.95rem !important;
+                line-height: 1.25 !important;
                 margin: 0 !important;
+                white-space: nowrap !important;
+                overflow: visible !important;
+                text-overflow: clip !important;
             }
 
             /* Primary Buttons */
@@ -279,7 +283,7 @@ def style_base_layout():
                 background-color: #EB459E !important;
                 border-radius: 1.5rem !important;
                 color: white !important;
-                padding: 10px 20px !important;
+                padding: 8px 16px !important;
                 border: none !important;
                 transition: transform 0.25s ease-in-out, background 0.25s ease-in-out !important;
             }

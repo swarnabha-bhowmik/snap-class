@@ -29,11 +29,11 @@ def student_dashboard():
     st.subheader(f"Welcome to your Student Dashboard, {student_name}", text_alignment="center")
     st.space()
 
-    col1, col2 = st.columns([4.7, 1.3], vertical_alignment="center")
+    col1, col2 = st.columns([3.6, 2.4], vertical_alignment="center")
     with col1:
         st.header("Enrolled Subjects", width="stretch")
     with col2:
-        if st.button("Discover new Subjects", type="secondary", width=190, key="enroll_subject_btn"):
+        if st.button("Discover new Subjects", type="secondary", use_container_width=True, key="enroll_subject_btn"):
             enroll_subject()
 
     with st.spinner("Loading your Enrolled Subjects..."):

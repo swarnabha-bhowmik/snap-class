@@ -11,13 +11,14 @@ def manage_subjects():
     style_background_dashboard()
     header_teacher_dashboard()
     
-    teacher_username = st.session_state.teacher_data
+    teacher_data = st.session_state.get('teacher_data', '')
+    teacher_username = teacher_data['teacher_username'] if isinstance(teacher_data, dict) else teacher_data
     st.space()
-    col1, col2 = st.columns([4.7, 1.3], vertical_alignment="center")
+    col1, col2 = st.columns([3.6, 2.4], vertical_alignment="center")
     with col1:
         st.header("Manage Subjects", width="stretch")
     with col2:
-        if st.button("Create New Subject", type="secondary", width=190, key="create_new_sub_btn"):
+        if st.button("Create New Subject", type="secondary", use_container_width=True, key="create_new_sub_btn"):
             create_subject(teacher_username)
     
     subjects = get_subjects(teacher_username)

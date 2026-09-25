@@ -13,10 +13,10 @@ def header_home():
 
 def header_dashboard():
     logo_url = "https://i.ibb.co/YTYGn5qV/logo.png"
-    col_back, col_brand, col_spacer = st.columns([1.3, 3.4, 1.3], vertical_alignment="center")
+    col_back, col_brand, col_spacer = st.columns([2.0, 2.8, 1.2], vertical_alignment="center")
     
     with col_back:
-        if st.button("← Back to Home", type="secondary", key="dashboard_back_home"):
+        if st.button("← Back to Home", type="secondary", key="auth_back_home", use_container_width=True):
             st.session_state['login_type'] = None
             st.rerun()
 
@@ -31,10 +31,10 @@ def header_dashboard():
 
 def header_teacher_dashboard():
     logo_url = "https://i.ibb.co/YTYGn5qV/logo.png"
-    col_back, col_brand, col_logout = st.columns([1.3, 3.4, 1.3], vertical_alignment="center")
+    col_back, col_brand, col_logout = st.columns([2.3, 2.6, 1.1], vertical_alignment="center")
     
     with col_back:
-        if st.button("← Back to Dashboard", type="secondary", key="dashboard_back_home"):
+        if st.button("← Back to Dashboard", type="secondary", key="teacher_back_dashboard", use_container_width=True):
             st.session_state['login_type'] = "teacher_dashboard"
             st.rerun()
 
@@ -47,7 +47,7 @@ def header_teacher_dashboard():
             unsafe_allow_html=True
         )
     with col_logout:
-        if st.button("Logout", type="primary", key="teacher_logout"):
+        if st.button("Logout", type="primary", key="teacher_logout", use_container_width=True):
             st.session_state['login_type'] = None
             st.session_state.pop('teacher_data', None)
             st.session_state.pop('user_role', None)
@@ -55,10 +55,10 @@ def header_teacher_dashboard():
 
 def header_student_dashboard():
     logo_url = "https://i.ibb.co/YTYGn5qV/logo.png"
-    col_back, col_brand, col_logout = st.columns([1.3, 3.4, 1.3], vertical_alignment="center")
+    col_back, col_brand, col_logout = st.columns([2.0, 2.8, 1.2], vertical_alignment="center")
     
     with col_back:
-        if st.button("← Back to Home", type="secondary", key="dashboard_back_home"):
+        if st.button("← Back to Home", type="secondary", key="student_back_home", use_container_width=True):
             st.session_state['login_type'] = None
             st.rerun()
 
@@ -71,7 +71,7 @@ def header_student_dashboard():
             unsafe_allow_html=True
         )
     with col_logout:
-        if st.button("Logout", type="primary", key="student_logout"):
+        if st.button("Logout", type="primary", key="student_logout", use_container_width=True):
             st.session_state['login_type'] = None
             st.session_state.pop('student_data', None)
             st.session_state.pop('student_id', None)
