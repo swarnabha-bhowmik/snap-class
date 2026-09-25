@@ -1,0 +1,14 @@
+[server]
+enableStaticServing = true
+
+[[theme.fontFaces]]
+family = "Climate Crisis"
+url = "app/static/ClimateCrisis.woff2"
+weight = 400
+style = "normal"
+
+[[theme.fontFaces]]
+family = "Climate Crisis"
+url = "https://fonts.gstatic.com/s/climatecrisis/v15/wEOkEB3AntNeKCPBVW9XOKlmp1oYqbY.woff2"
+weight = 400
+style = "normal"
