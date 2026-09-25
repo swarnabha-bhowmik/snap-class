@@ -1,3 +1,5 @@
+streamlit
+
 # utilities
 numpy
 pandas
@@ -14,8 +16,6 @@ bcrypt
 
 segno # QR Code generator
 pillow #Image Manipulation
-
-streamlit
 
 #Voice Recognition
 librosa

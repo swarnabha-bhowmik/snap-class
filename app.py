@@ -15,6 +15,11 @@ from src.ui.base_layout import style_base_layout
 from src.components.dialog import auto_enroll
 
 def main():
+    st.set_page_config(
+        page_title = 'Snap Class - Faster Attendence using AI', 
+        page_icon = "https://i.ibb.co/YTYGn5qV/logo.png"
+    )
+
     style_base_layout()
 
     if "login_type" not in st.session_state:
