@@ -1,0 +1,823 @@
+html
+{
+    scroll-behavior: smooth;
+    scroll-padding-top: 85px;
+}
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1,h2,h3,h4
+{
+    font-family: "Climate Crisis", sans-serif;
+    line-height: 1.1;
+    word-break: break-word;
+}
+
+body
+{
+    background-color: #F0F4FF;
+    font-family: "Outfit", sans-serif;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+.navbar
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 80px;
+    background-color: black;
+    position: sticky;
+    top: 0px;
+    z-index: 999;
+}
+
+.image
+{
+    height: 32px;
+}
+
+.logo
+{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.logo img
+{
+    height: 38px;
+    width: auto;
+}
+.logo_txt
+{
+    font-family: "Climate Crisis", sans-serif;
+    font-size: 1.6rem;
+    color: white;
+    line-height: 0.8;
+    font-weight: 500;
+}
+
+.nav-links
+{
+    display: flex;
+    gap: 40px;
+}
+.nav-links a
+{
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+.nav-links a:hover
+{
+    color: #5865F2;
+}
+
+.btn-pill
+{
+    background-color: white;
+    color: black;
+    padding: 13px 32px;
+    border-radius: 100px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+.btn-pill:hover
+{
+    background-color: #f0f0f0;
+}
+
+.hero
+{
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 40px;
+    background-color: #f0f0f0;
+}
+.hero h1
+{
+    font-size: 5rem;
+    color: black;
+    max-width: 700px;
+    margin-bottom: 24px;
+    line-height: 1;
+}
+.hero h1 span
+{
+    color: #5865F2;
+}
+.hero p
+{
+    font-size: 1.25rem;
+    color: #64748b;
+    max-width: 650px;
+    margin-bottom: 56px;
+    font-weight: 400;
+}
+
+.badge
+{
+    display: inline-flex;
+    align-items: center;
+    background-color: white;
+    border: 1px solid rgb(225, 198, 225);
+    border-radius: 100px;
+    padding: 10px 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #5865F2;
+    margin-bottom: 32px;
+}
+
+.hero-actions
+{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 60px;
+}
+
+.hero-btn-pill
+{
+    background-color: black;
+    color: white;
+    padding: 13px 32px;
+    border-radius: 100px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    font-weight: 700;
+}
+.hero-btn-pill:hover
+{
+    background-color: #333333;
+}
+
+.link-action
+{
+    color: #64748b;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+.link-action:hover
+{
+    color: #5865F2;
+}
+
+.floating-card
+{
+    position: absolute;
+    width: 320px;
+    background-color: white;
+    padding: 14px;
+    border-radius: 36px;
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+}
+.floating-card img
+{
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 24px;
+    background-color: gray;
+}
+
+.card-left
+{
+    left: 40px;
+    top: 50%;
+}
+
+.card-right
+{
+    right: 40px;
+    bottom: 15%;
+}
+
+.features
+{
+    padding: 120px 80px;
+    background-color: white;
+    text-align: center;
+}
+.features h2
+{
+    font-size: 3.5rem;
+    margin-bottom: 60px;
+}
+
+.feature-grid
+{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card
+{
+    padding: 60px 40px;
+    border-radius: 40px;
+    background-color: white;
+    border: 1px solid #e5e7eb;
+}
+.feature-card h3
+{
+    font-size: 1.6rem;
+    margin-bottom: 16px;
+    font-weight: 800;
+}
+.feature-card p
+{
+    color: #333333;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.f-icon-box
+{
+    width: 80px;
+    height: 80px;
+    background-color: #f8faff;
+    border-radius: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 30px;
+    font-size: 2.5rem;
+}
+
+.teacher-flow
+{
+    padding: 120px 40px;
+    background-color: #F8FAFF;
+    position: relative;
+}
+
+#student-flow
+{
+    padding-top: 40px;
+    border-top: 1px solid rgba(88, 101, 242, 0.08);
+}
+
+.flow-container
+{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.tag-section
+{
+    display: table;
+    margin: 0 auto 16px auto;
+    text-align: center;
+    color: #5865F2;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    background: rgba(88, 101, 242, 0.08);
+    padding: 8px 20px;
+    border-radius: 999px;
+    border: 1px solid rgba(88, 101, 242, 0.18);
+}
+
+.flow-container h2
+{
+    text-align: center;
+    font-size: clamp(2.4rem, 4vw, 3.5rem);
+    margin-bottom: 90px;
+    color: #0F172A;
+    letter-spacing: -0.5px;
+}
+
+.flow-step
+{
+    display: flex;
+    align-items: center;
+    gap: 70px;
+    margin-bottom: 100px;
+}
+
+.flow-step:last-child
+{
+    margin-bottom: 20px;
+}
+
+.flow-step:nth-of-type(even)
+{
+    flex-direction: row-reverse;
+}
+
+.flow-content
+{
+    flex: 1;
+    max-width: 520px;
+}
+
+.step-badge
+{
+    display: inline-flex;
+    align-items: center;
+    background: #5865F2;
+    color: white;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 18px;
+    font-size: 0.78rem;
+    padding: 6px 14px;
+    border-radius: 999px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 12px rgba(88, 101, 242, 0.25);
+}
+
+.flow-content h3
+{
+    font-size: clamp(1.8rem, 2.6vw, 2.3rem);
+    margin-bottom: 16px;
+    color: #111827;
+    line-height: 1.2;
+}
+
+.flow-content p
+{
+    font-size: 1.12rem;
+    color: #4B5563;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+.flow-image
+{
+    flex: 1.35;
+    border-radius: 28px;
+    background-color: white;
+    border: 1px solid rgba(229, 231, 235, 0.9);
+    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.03);
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.flow-step:hover .flow-image
+{
+    transform: translateY(-6px);
+    box-shadow: 0 28px 60px -12px rgba(88, 101, 242, 0.16), 0 0 0 1px rgba(88, 101, 242, 0.2);
+}
+
+.flow-image img
+{
+    width: 100%;
+    height: 100%;
+    max-height: 440px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.flow-step:hover .flow-image img
+{
+    transform: scale(1.025);
+}
+
+.tech-stack
+{
+    padding: 80px 40px;
+    background-color: #7c4dff;
+    border-radius: 60px;
+    margin: 40px;
+    text-align: center;
+}
+.tech-stack h2
+{
+    font-size: 3.3rem;
+    margin-bottom: 12px;
+    color: white;
+}
+
+.section-tag
+{
+    color: white;
+    font-weight: 700;
+}
+
+.tech-grid
+{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 1200px;
+    margin: 40px auto 0;
+}
+
+.tech-card
+{
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 30px 20px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+.tech-card h4
+{
+    font-size: 1.15rem;
+    margin: 6px;
+    color: white;
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+}
+.tech-card p
+{
+    font-size: 0.85rem;
+    color: white;
+    line-height: 1.4;
+}
+
+.t-icon
+{
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    background-color: white;
+    min-width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+}
+
+.tech-tag
+{
+    display: inline-block;
+    background-color: #4BB786;
+    color: white;
+    border-radius: 8px;
+    font-size: 0.65rem;
+    margin-top: 10px;
+    padding: 2px 10px;
+    font-weight: 800;
+}
+
+.sec
+{
+    background-color: #5865F2;
+    color: white;
+    padding: 100px 80px;
+    text-align: center;
+    border-radius: 80px;
+    margin: 40px;
+}
+.sec h2
+{
+    font-size: 3.5rem;
+    margin-bottom: 24px;
+    color: white;
+}
+.sec p
+{
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+.btn-sec
+{
+    background-color: white;
+    color: #5865F2;
+    padding: 18px 40px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.1rem;
+    display: inline-block;
+}
+
+.main-footer
+{
+    padding: 100px 80px 40px;
+    background-color: black;
+    color: white;
+    border-top: 1px solid #333333;
+}
+
+.footer-grid
+{
+    display: grid;
+    gap: 80px;
+    margin: 0 auto 80px;
+    max-width: 1200px;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+}
+
+.footer-brand .logo
+{
+    margin-bottom: 24px;
+}
+.footer-brand p
+{
+    color: #cccccc;
+    font-size: 1rem;
+    max-width: 320px;
+    line-height: 1.6;
+}
+.footer-brand .logo_txt
+{
+    color: white;
+}
+
+.footer-links h4
+{
+    font-size: 1.1rem;
+    color: white;
+    margin-bottom: 32px;
+    font-family: 800;
+}
+.footer-links ul
+{
+    list-style: none;
+}
+.footer-links li
+{
+    margin-bottom: 16px;
+}
+.footer-links a
+{
+    text-decoration: none;
+    color: #cccccc;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.footer-bottom
+{
+    padding: 40px;
+    border-top: 1px solid #333333;
+    text-align: center;
+}
+.footer-bottom p
+{
+    color: #999999;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Tablet screens (769px - 1024px) */
+@media (max-width: 1024px)
+{
+    .navbar
+    {
+        padding: 12px 32px;
+    }
+    .floating-card
+    {
+        display: none;
+    }
+    .hero
+    {
+        padding: 80px 24px 60px;
+        min-height: auto;
+    }
+    .hero h1
+    {
+        font-size: clamp(2.6rem, 5vw, 3.8rem);
+    }
+    .features
+    {
+        padding: 80px 32px;
+    }
+    .feature-grid
+    {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+    .feature-card:last-child
+    {
+        grid-column: span 2;
+        max-width: 600px;
+        margin: 0 auto;
+        width: 100%;
+    }
+    .tech-stack
+    {
+        padding: 60px 24px;
+        margin: 32px 20px;
+        border-radius: 40px;
+    }
+    .tech-grid
+    {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .sec
+    {
+        padding: 60px 32px;
+        margin: 32px 20px;
+        border-radius: 40px;
+    }
+    .footer-grid
+    {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+}
+
+/* Mobile screens (<= 768px) */
+@media (max-width: 768px)
+{
+    .navbar
+    {
+        padding: 12px 16px;
+    }
+    .logo img
+    {
+        height: 28px;
+    }
+    .logo_txt
+    {
+        font-size: 1.1rem;
+    }
+    .nav-links
+    {
+        display: none;
+    }
+    .btn-pill
+    {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+    .hero
+    {
+        padding: 60px 16px 40px;
+        min-height: auto;
+    }
+    .hero h1
+    {
+        font-size: 2.3rem;
+        line-height: 1.2;
+    }
+    .hero p
+    {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+    .hero-btn-pill
+    {
+        width: 100%;
+        justify-content: center;
+        padding: 16px;
+        font-size: 1rem;
+    }
+    .link-action
+    {
+        font-size: 0.9rem;
+    }
+    .floating-card
+    {
+        display: none;
+    }
+    .features
+    {
+        padding: 60px 16px;
+    }
+    .features h2
+    {
+        font-size: 2.1rem;
+    }
+    .feature-grid
+    {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .feature-card
+    {
+        padding: 24px;
+        border-radius: 24px;
+    }
+    .feature-card:last-child
+    {
+        grid-column: span 1;
+        max-width: 100%;
+    }
+    .tech-stack
+    {
+        padding: 50px 16px;
+        margin: 20px 12px;
+        border-radius: 28px;
+    }
+    .tech-stack h2
+    {
+        font-size: 2rem;
+    }
+    .tech-grid
+    {
+        grid-template-columns: 1fr;
+    }
+    .tech-card
+    {
+        padding: 20px;
+    }
+    .teacher-flow
+    {
+        padding: 60px 16px;
+    }
+    .flow-container h2
+    {
+        font-size: 2.1rem;
+        margin-bottom: 50px;
+    }
+    .flow-step,
+    .flow-step:nth-of-type(even)
+    {
+        flex-direction: column;
+        gap: 28px;
+        margin-bottom: 60px;
+    }
+    .flow-content
+    {
+        max-width: 100%;
+        text-align: center;
+    }
+    .step-badge
+    {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .flow-content h3
+    {
+        font-size: 1.8rem;
+    }
+    .flow-content p
+    {
+        font-size: 1rem;
+    }
+    .flow-image
+    {
+        width: 100%;
+        border-radius: 20px;
+    }
+    .sec
+    {
+        padding: 50px 16px;
+        margin: 20px 12px;
+        border-radius: 28px;
+    }
+    .sec h2
+    {
+        font-size: 2rem;
+    }
+    .btn-sec,
+    .btn-white
+    {
+        width: 100%;
+        padding: 16px;
+        text-align: center;
+    }
+    .main-footer
+    {
+        padding: 60px 16px 30px;
+    }
+    .footer-brand .logo
+    {
+        justify-content: center;
+    }
+    .footer-brand p
+    {
+        max-width: 100%;
+    }
+    .footer-grid
+    {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    img
+    {
+        max-width: 100%;
+        height: auto;
+    }
+}
