@@ -1,4 +1,6 @@
 streamlit
+extra-streamlit-components
+PyJWT
 
 # utilities
 numpy

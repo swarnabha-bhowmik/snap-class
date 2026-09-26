@@ -35,6 +35,15 @@ def get_all_students():
     response = supabase.table("students").select("*").execute()
     return response.data
 
+def get_student_by_id(student_id):
+    try:
+        response = supabase.table("students").select("*").eq("student_id", student_id).execute()
+        if response.data:
+            return response.data[0]
+        return None
+    except Exception:
+        return None
+
 def student_login(email, password):
     response = supabase.table("students").select("*").eq("email", email).execute()
     if response.data:

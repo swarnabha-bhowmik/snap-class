@@ -7,12 +7,12 @@ from src.screens.teacher_screens.dashboard import teacher_dashboard
 from src.screens.teacher_screens.take_attendence import take_attendence
 from src.screens.teacher_screens.subjects import manage_subjects
 from src.screens.teacher_screens.attendence import attendence_records
-from src.screens.teacher_screens.dashboard import teacher_dashboard
 import importlib
 import src.ui.base_layout
 importlib.reload(src.ui.base_layout)
 from src.ui.base_layout import style_base_layout
 from src.components.dialog import auto_enroll
+from src.utils.cookie_auth import get_cookie_manager, restore_session_from_cookie
 
 def main():
     st.set_page_config(
@@ -21,6 +21,9 @@ def main():
     )
 
     style_base_layout()
+
+    cookie_manager = get_cookie_manager()
+    restore_session_from_cookie(cookie_manager)
 
     if "login_type" not in st.session_state:
         st.session_state["login_type"] = None
@@ -38,13 +41,19 @@ def main():
 
     match st.session_state["login_type"]:
         case "teacher":
-            teacher_screen()
+            if st.session_state.get('is_logged_in') and st.session_state.get('user_role') == "teacher":
+                teacher_dashboard()
+            else:
+                teacher_screen()
         case "teacher_screen_signup":
             teacher_screen_signup()
         case "teacher_dashboard":
             teacher_dashboard()
         case "student":
-            student_screen()
+            if st.session_state.get('is_logged_in') and st.session_state.get('user_role') == "student":
+                student_dashboard()
+            else:
+                student_screen()
         case "student_screen_signup":
             student_screen_signup()
         case "student_face_login":

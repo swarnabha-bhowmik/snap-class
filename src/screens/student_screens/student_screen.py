@@ -8,6 +8,7 @@ from src.components.footer import footer_home
 from src.ui.base_layout import style_background_dashboard, style_base_layout
 from src.pipelines.face_pipeline import predict_attendence
 from src.database.db import get_all_students
+from src.utils.cookie_auth import save_auth_cookie
 
 def student_screen():
     style_base_layout()
@@ -19,19 +20,22 @@ def student_screen():
     student_email = st.text_input("Email id", placeholder="Enter your email id")
     student_password = st.text_input("Password", placeholder="Enter your password", type="password")
     st.divider()
-    spacer, col1, col2, col3 = st.columns([1.5, 1, 1, 1], gap="small")
+    spacer, col1, col2, col3 = st.columns([0.3, 1.0, 1.8, 1.0], gap="small")
     with col1:
         if st.button("Login", type="primary", key="student_login", use_container_width=True):
             success, student, message = login_student(student_email, student_password)
             if success and student:
                 student_id = student.get("student_id") if isinstance(student, dict) else student
                 student_name = student.get("name", "Student") if isinstance(student, dict) else student
+                st.session_state.pop('logged_out', None)
                 st.session_state['student_id'] = student_id
                 st.session_state['student_data'] = student_name
                 st.session_state.user_role = "student"
                 st.session_state['is_logged_in'] = True
                 st.session_state['login_toast'] = message
                 st.session_state['login_type'] = "student_dashboard"
+                save_auth_cookie(role="student", user_id=student_id, user_data=student_name)
+                time.sleep(0.3)
                 st.rerun()
             else:
                 st.toast(icon="⚠️", body=message)
@@ -70,12 +74,15 @@ def student_face_login():
                     if student:
                         actual_student_id = student.get('student_id')
                         student_name = student.get('name', 'Student')
+                        st.session_state.pop('logged_out', None)
                         st.session_state['student_id'] = actual_student_id
                         st.session_state['student_data'] = student_name
                         st.session_state.user_role = "student"
                         st.session_state['is_logged_in'] = True
                         st.session_state['login_type'] = "student_dashboard"
                         st.session_state['login_toast'] = "Welcome Back, " + student_name
+                        save_auth_cookie(role="student", user_id=actual_student_id, user_data=student_name)
+                        time.sleep(0.3)
                         st.rerun()
                     else:
                         st.toast("Face matched ID but student profile was not found in database. Please sign up or contact support.", icon="⚠️")
@@ -120,12 +127,15 @@ def student_screen_signup():
         else:
             success, student_id, message = register_student(student_name, student_email, student_password, student_confirm_password, img, audio)
             if success:
+                st.session_state.pop('logged_out', None)
                 st.session_state['student_id'] = student_id
                 st.session_state['student_data'] = student_name
                 st.session_state.user_role = "student"
                 st.session_state['is_logged_in'] = True
                 st.session_state['login_type'] = "student_dashboard"
                 st.session_state['login_toast'] = message
+                save_auth_cookie(role="student", user_id=student_id, user_data=student_name)
+                time.sleep(0.3)
                 st.rerun()
             else:
                 st.toast(icon="⚠️", body=message)

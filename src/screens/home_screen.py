@@ -12,13 +12,19 @@ def home_screen():
         st.header("I'm Teacher")
         st.image("https://i.ibb.co/CsmQQV6X/mascot-prof.png", width=120)
         if st.button("Teacher Portal", type="secondary", key="home_teacher_portal"):
-            st.session_state['login_type'] = "teacher"
+            if st.session_state.get('is_logged_in') and st.session_state.get('user_role') == "teacher":
+                st.session_state['login_type'] = "teacher_dashboard"
+            else:
+                st.session_state['login_type'] = "teacher"
             st.rerun()
     with col2:
         st.header("I'm Student")
         st.image("https://i.ibb.co/844D9Lrt/mascot-student.png", width=120)
         if st.button("Student Portal", type="secondary", key="home_student_portal"):
-            st.session_state['login_type'] = "student"
+            if st.session_state.get('is_logged_in') and st.session_state.get('user_role') == "student":
+                st.session_state['login_type'] = "student_dashboard"
+            else:
+                st.session_state['login_type'] = "student"
             st.rerun()
     
     footer_home()

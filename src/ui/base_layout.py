@@ -210,10 +210,18 @@ def style_base_layout():
                 height: auto !important;
                 border-radius: 1.5rem !important;
                 color: white !important;
-                padding: 8px 16px !important;
+                padding: 6px 12px !important;
+                gap: 6px !important;
                 border: none !important;
                 box-sizing: border-box !important;
                 transition: transform 0.25s ease-in-out, background 0.25s ease-in-out !important;
+            }
+
+            .stButton > button [data-testid="stIconMaterial"]
+            {
+                font-size: 1.2rem !important;
+                flex-shrink: 0 !important;
+                margin-right: 2px !important;
             }
 
             .stButton > button span[data-has-shortcut="true"]
@@ -242,17 +250,20 @@ def style_base_layout():
             }
 
             button p,
-            .stButton > button p
+            .stButton > button p,
+            .stButton > button div,
+            .stButton > button div[data-testid="stMarkdownContainer"]
             {
                 color: white !important;
                 font-family: "Outfit", "Plus Jakarta Sans", sans-serif !important;
                 font-weight: 600 !important;
-                font-size: 0.95rem !important;
+                font-size: 0.88rem !important;
                 line-height: 1.25 !important;
                 margin: 0 !important;
                 white-space: nowrap !important;
                 overflow: visible !important;
                 text-overflow: clip !important;
+                max-width: none !important;
             }
 
             /* Primary Buttons */

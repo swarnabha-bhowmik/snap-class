@@ -29,6 +29,9 @@ def header_dashboard():
             unsafe_allow_html=True
         )
 
+import time
+from src.utils.cookie_auth import clear_auth_cookie
+
 def header_teacher_dashboard():
     logo_url = "https://i.ibb.co/YTYGn5qV/logo.png"
     col_back, col_brand, col_logout = st.columns([2.3, 2.6, 1.1], vertical_alignment="center")
@@ -48,10 +51,12 @@ def header_teacher_dashboard():
         )
     with col_logout:
         if st.button("Logout", type="primary", key="teacher_logout", use_container_width=True):
+            clear_auth_cookie()
             st.session_state['login_type'] = None
             st.session_state.pop('teacher_data', None)
             st.session_state.pop('user_role', None)
             st.session_state.pop('is_logged_in', None)
+            time.sleep(0.3)
             st.rerun()
 
 def header_student_dashboard():
@@ -73,9 +78,11 @@ def header_student_dashboard():
         )
     with col_logout:
         if st.button("Logout", type="primary", key="student_logout", use_container_width=True):
+            clear_auth_cookie()
             st.session_state['login_type'] = None
             st.session_state.pop('student_data', None)
             st.session_state.pop('student_id', None)
             st.session_state.pop('user_role', None)
             st.session_state.pop('is_logged_in', None)
+            time.sleep(0.3)
             st.rerun()

@@ -27,7 +27,7 @@ def take_attendence():
         return
     subject_options = {f"{s['name']} — {s.get('code') or s.get('subject_code', '')}": s['subject_id'] for s in subjects}
 
-    col1, col2, col3 = st.columns([3,1,1], vertical_alignment='bottom')
+    col1, col2, col3 = st.columns([2.0, 1.3, 1.8], vertical_alignment='bottom')
     with col1:
         selected_label = st.selectbox("Select Subject", options=list(subject_options.keys()))
     with col2:

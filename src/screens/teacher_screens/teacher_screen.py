@@ -1,8 +1,10 @@
+import time
 import streamlit as st
 from src.components.footer import footer_home
 from src.ui.base_layout import style_background_dashboard, style_base_layout
 from src.components.header import header_dashboard
 from src.middlewares.teacher import register_teacher, login_teacher
+from src.utils.cookie_auth import save_auth_cookie
 
 def teacher_screen():
     style_base_layout()
@@ -20,8 +22,13 @@ def teacher_screen():
             success, message = login_teacher(teacher_username, teacher_password)
             if success:
                 st.toast(message)
+                st.session_state.pop('logged_out', None)
                 st.session_state['teacher_data'] = teacher_username
+                st.session_state['user_role'] = "teacher"
+                st.session_state['is_logged_in'] = True
                 st.session_state['login_type'] = "teacher_dashboard"
+                save_auth_cookie(role="teacher", user_id=None, user_data=teacher_username)
+                time.sleep(0.3)
                 st.rerun()
             else:
                 st.toast(icon="⚠️", body=message)
